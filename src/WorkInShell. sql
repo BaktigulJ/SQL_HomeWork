@@ -1,0 +1,214 @@
+Server [localhost]:
+Database [postgres]:
+Port [5432]:
+Username [postgres]:
+Пароль пользователя postgres:
+psql (12.12)
+ПРЕДУПРЕЖДЕНИЕ: Кодовая страница консоли (866) отличается от основной
+                страницы Windows (1251).
+                8-битовые (русские) символы могут отображаться некорректно.
+                Подробнее об этом смотрите документацию psql, раздел
+                "Notes for Windows users".
+Введите "help", чтобы получить справку.
+
+postgres=# CREATE TABLE restaurants (
+postgres(#     id serial PRIMARY KEY,
+postgres(#     name VARCHAR,
+postgres(#     cuisine_type VARCHAR,
+postgres(#     location VARCHAR,
+postgres(#     rating DECIMAL(3, 2)
+postgres(# );
+CREATE TABLE
+postgres=# INSERT INTO restaurants (name, cuisine_type, location, rating)
+postgres-# VALUES
+postgres-# ('La Trattoria', 'Italian', 'Downtown', 4.5),
+postgres-# ('Sushi House', 'Japanese', 'Midtown', 4.2),
+postgres-# ('Spice Delight', 'Indian', 'Suburb', 3.8);
+INSERT 0 3
+postgres=# select * from restaurants;
+ id |     name      | cuisine_type | location | rating
+----+---------------+--------------+----------+--------
+  1 | La Trattoria  | Italian      | Downtown |   4.50
+  2 | Sushi House   | Japanese     | Midtown  |   4.20
+  3 | Spice Delight | Indian       | Suburb   |   3.80
+(3 ёЄЁюъш)
+
+
+postgres=# CREATE TABLE destinations (
+postgres(#     id serial PRIMARY KEY,
+postgres(#     city VARCHAR,
+postgres(#     country VARCHAR,
+postgres(#     attractions TEXT
+postgres(# );
+CREATE TABLE
+postgres=# INSERT INTO destinations (city, country, attractions)
+postgres-# VALUES
+postgres-# ('Paris', 'France', 'Eiffel Tower, Louvre Museum'),
+postgres-# ('Tokyo', 'Japan', 'Tokyo Skytree, Senso-ji Temple'),
+postgres-# ('Sydney', 'Australia', 'Sydney Opera House, Bondi Beach');
+INSERT 0 3
+postgres=# select * from destinations;
+ id |  city  |  country  |           attractions
+----+--------+-----------+---------------------------------
+  1 | Paris  | France    | Eiffel Tower, Louvre Museum
+  2 | Tokyo  | Japan     | Tokyo Skytree, Senso-ji Temple
+  3 | Sydney | Australia | Sydney Opera House, Bondi Beach
+(3 ёЄЁюъш)
+
+
+postgres=# CREATE TABLE pets (
+postgres(#     id serial PRIMARY KEY,
+postgres(#     name VARCHAR,
+postgres(#     species VARCHAR,
+postgres(#     owner VARCHAR,
+postgres(#     age INTEGER
+postgres(# );
+CREATE TABLE
+postgres=# INSERT INTO pets (name, species, owner, age)
+postgres-# VALUES
+postgres-# ('Buddy', 'Dog', 'Alice', 3),
+postgres-# ('Whiskers', 'Cat', 'Bob', 5),
+postgres-# ('Charlie', 'Parrot', 'Charlie', 2);
+INSERT 0 3
+postgres=# select * from pets;
+ id |   name   | species |  owner  | age
+----+----------+---------+---------+-----
+  1 | Buddy    | Dog     | Alice   |   3
+  2 | Whiskers | Cat     | Bob     |   5
+  3 | Charlie  | Parrot  | Charlie |   2
+(3 ёЄЁюъш)
+
+
+postgres=# CREATE TABLE courses (
+postgres(#     id serial PRIMARY KEY,
+postgres(#     course_name VARCHAR,
+postgres(#     instructor VARCHAR,
+postgres(#     department VARCHAR
+postgres(# );
+CREATE TABLE
+postgres=# INSERT INTO courses (course_name, instructor, department)
+postgres-# VALUES
+postgres-# ('Introduction to Programming', 'Dr. Smith', 'Computer Science'),
+postgres-# ('History of Art', 'Prof. Johnson', 'Fine Arts'),
+postgres-# ('Statistics 101', 'Dr. Williams', 'Mathematics');
+INSERT 0 3
+postgres=# select * from courses
+postgres-# select * from courses;
+ОШИБКА:  ошибка синтаксиса (примерное положение: "select")
+СТРОКА 2: select * from courses;
+          ^
+postgres=# CREATE TABLE users (
+postgres(#     id serial PRIMARY KEY,
+postgres(#     username VARCHAR,
+postgres(#     full_name VARCHAR,
+postgres(#     email VARCHAR
+postgres(# );
+CREATE TABLE
+postgres=# INSERT INTO users (username, full_name, email)
+postgres-# VALUES
+postgres-# ('@alice92', 'Alice Johnson', 'alice@gmail.com'),
+postgres-# ('@bob123', 'Bob Smith', 'bob@yahoo.com'),
+postgres-# ('@charlie', 'Charlie Brown', 'charlie@hotmail.com');
+INSERT 0 3
+postgres=# select * from users;
+ id | username |   full_name   |        email
+----+----------+---------------+---------------------
+  1 | @alice92 | Alice Johnson | alice@gmail.com
+  2 | @bob123  | Bob Smith     | bob@yahoo.com
+  3 | @charlie | Charlie Brown | charlie@hotmail.com
+(3 ёЄЁюъш)
+
+
+postgres=# CREATE TABLE countries (
+postgres(#     id serial PRIMARY KEY,
+postgres(#     country_name VARCHAR,
+postgres(#     continent VARCHAR,
+postgres(#     population BIGINT
+postgres(# );
+CREATE TABLE
+postgres=# INSERT INTO countries (country_name, continent, population)
+postgres-# VALUES
+postgres-# ('USA', 'North America', 331000000),
+postgres-# ('Brazil', 'South America', 213993437),
+postgres-# ('China', 'Asia', 1444216107);
+INSERT 0 3
+postgres=# select * from countries;
+ id | country_name |   continent   | population
+----+--------------+---------------+------------
+  1 | USA          | North America |  331000000
+  2 | Brazil       | South America |  213993437
+  3 | China        | Asia          | 1444216107
+(3 ёЄЁюъш)
+
+
+postgres=# CREATE TABLE phones (
+postgres(#     id serial PRIMARY KEY,
+postgres(#     brand VARCHAR,
+postgres(#     model VARCHAR,
+postgres(#     storage_capacity INTEGER,
+postgres(#     price NUMERIC
+postgres(# );
+CREATE TABLE
+postgres=# INSERT INTO phones (brand, model, storage_capacity, price)
+postgres-# VALUES
+postgres-# ('Apple', 'iPhone 13', 128, 999.99),
+postgres-# ('Samsung', 'Galaxy S21', 256, 899.50),
+postgres-# ('Google', 'Pixel 6', 128, 799.00);
+INSERT 0 3
+postgres=# select * from phones;
+ id |  brand  |   model    | storage_capacity | price
+----+---------+------------+------------------+--------
+  1 | Apple   | iPhone 13  |              128 | 999.99
+  2 | Samsung | Galaxy S21 |              256 | 899.50
+  3 | Google  | Pixel 6    |              128 | 799.00
+(3 ёЄЁюъш)
+
+
+postgres=# CREATE TABLE teams (
+postgres(#     id serial PRIMARY KEY,
+postgres(#     team_name VARCHAR,
+postgres(#     sport VARCHAR,
+postgres(#     city VARCHAR,
+postgres(#     championships INTEGER
+postgres(# );
+CREATE TABLE
+postgres=# INSERT INTO teams (team_name, sport, city, championships)
+postgres-# VALUES
+postgres-# ('New York Yankees', 'Baseball', 'New York', 27),
+postgres-# ('Los Angeles Lakers', 'Basketball', 'Los Angeles', 17),
+postgres-# ('Manchester United', 'Soccer', 'Manchester', 20);
+INSERT 0 3
+postgres=# select * from teams;
+ id |     team_name      |   sport    |    city     | championships
+----+--------------------+------------+-------------+---------------
+  1 | New York Yankees   | Baseball   | New York    |            27
+  2 | Los Angeles Lakers | Basketball | Los Angeles |            17
+  3 | Manchester United  | Soccer     | Manchester  |            20
+(3 ёЄЁюъш)
+
+
+postgres=# CREATE TABLE vegetables (
+postgres(#     id serial PRIMARY KEY,
+postgres(#     name VARCHAR,
+postgres(#     color VARCHAR,
+postgres(#     nutritional_value INTEGER
+postgres(# );
+CREATE TABLE
+postgres=# INSERT INTO vegetables (name, color, nutritional_value)
+postgres-# VALUES
+postgres-# ('Carrot', 'Orange', 41),
+postgres-# ('Broccoli', 'Green', 55),
+postgres-# ('Beetroot', 'Red', 43);
+INSERT 0 3
+postgres=# select * from vegetables;
+ id |   name   | color  | nutritional_value
+----+----------+--------+-------------------
+  1 | Carrot   | Orange |                41
+  2 | Broccoli | Green  |                55
+  3 | Beetroot | Red    |                43
+(3 ёЄЁюъш)
+
+
+postgres=# alter table vegetables rename to vegetables_s;
+ALTER TABLE
+postgres=#
